@@ -1,0 +1,27 @@
+{
+  "name": "buckle-up_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && npx tsc",
+    "prestart": "npm run build",
+    "start": "node dist/index.js",
+    "predev": "npm run build",
+    "dev": "concurrently \"npx tsc -w\"  \"nodemon dist/index.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.15.13",
+    "concurrently": "^8.0.1",
+    "express": "^4.18.2",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
