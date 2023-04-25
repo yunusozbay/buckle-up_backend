@@ -36,4 +36,7 @@ const index_routes_1 = __importDefault(require("./routes/index.routes"));
 app.use("/", index_routes_1.default);
 const error_handling_1 = __importDefault(require("./error-handling"));
 (0, error_handling_1.default)(app);
+//Database connection
+const db_1 = __importDefault(require("./db"));
+(0, db_1.default)();
 exports.default = app;

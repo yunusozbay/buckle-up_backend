@@ -8,7 +8,7 @@ const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const cors_1 = __importDefault(require("cors"));
-const FRONTEND_URL = process.env.ORIGIN || "http://localhost:5000";
+const FRONTEND_URL = process.env.ORIGIN || "http://localhost:5173";
 const configure = (app) => {
     app.set("trust proxy", 1);
     app.use((0, cors_1.default)({

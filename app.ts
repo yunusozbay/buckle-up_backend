@@ -14,4 +14,9 @@ app.use("/", indexRoutes);
 import errorHandling from './error-handling';
 errorHandling(app);
 
+
+//Database connection
+import db from "./db"
+db()
+
 export default app
