@@ -11,6 +11,9 @@ configure(app)
 import indexRoutes from "./routes/index.routes"
 app.use("/", indexRoutes);
 
+import authRoutes from "./routes/auth.routes"
+app.use("/auth", authRoutes)
+
 import errorHandling from './error-handling';
 errorHandling(app);
 

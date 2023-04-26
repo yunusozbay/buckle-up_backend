@@ -1,11 +1,12 @@
 import { Schema, model } from "mongoose";
 
-interface IUser {
+export interface IUser {
   username: string;
   email: string;
   passwordHash: string;
   createdAt: Date;
   updatedAt: Date;
+  _id: string;
 }
 
 const userSchema = new Schema<IUser>(
@@ -34,6 +35,6 @@ const userSchema = new Schema<IUser>(
   }
 );
 
-const User = model<IUser>("User", userSchema);
+export const User = model<IUser>("User", userSchema);
 
-export default User;
+

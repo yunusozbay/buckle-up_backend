@@ -34,6 +34,8 @@ const config_1 = require("./config");
 (0, config_1.configure)(app);
 const index_routes_1 = __importDefault(require("./routes/index.routes"));
 app.use("/", index_routes_1.default);
+const auth_routes_1 = __importDefault(require("./routes/auth.routes"));
+app.use("/auth", auth_routes_1.default);
 const error_handling_1 = __importDefault(require("./error-handling"));
 (0, error_handling_1.default)(app);
 //Database connection

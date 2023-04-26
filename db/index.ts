@@ -9,11 +9,11 @@ const MONGO_URI: string =
 
 mongoose
   .connect(MONGO_URI)
-  .then((x: any) => {
+  .then((x) => {
     const dbName: string = x.connections[0].name;
     console.log(`Connected to Mongo! Database name: "${dbName}"`);
   })
-  .catch((err: any) => {
+  .catch((err) => {
     console.error('Error connecting to mongo: ', err);
   });
 }
