@@ -21,6 +21,12 @@ const userSchema = new mongoose_1.Schema({
         type: String,
         required: [true, "Password is required."],
     },
+    trips: [
+        {
+            type: mongoose_1.Schema.Types.ObjectId,
+            ref: "Trip",
+        },
+    ],
 }, {
     timestamps: true,
 });
