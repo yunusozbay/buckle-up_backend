@@ -15,6 +15,7 @@ router.post("/add",async (req:Request, res: Response, next: NextFunction) => {
             startingCity: trip.startingCity,
             destination: trip.destination,
             waypoints: trip.waypoints,
+            attractions: trip.attractions,
             totalDistance: trip.totalDistance,
             totalTime: trip.totalTime
         })

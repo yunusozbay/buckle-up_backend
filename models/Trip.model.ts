@@ -5,6 +5,7 @@ export interface ITrip {
   startingCity: string;
   destination: string;
   waypoints: object[];
+  attractions: object[];
   totalDistance: number;
   totalTime: number;
   _id: string;
@@ -27,6 +28,9 @@ const tripSchema = new Schema<ITrip>(
     waypoints: {
       type: [Object],
       required: true,
+    },
+    attractions: {
+      type: [Object],
     },
     totalDistance: {
         type: Number,
