@@ -4,6 +4,7 @@ export interface IUser {
   username: string;
   email: string;
   passwordHash: string;
+  trips: object[];
   createdAt: Date;
   updatedAt: Date;
   _id: string;
@@ -29,6 +30,12 @@ const userSchema = new Schema<IUser>(
       type: String,
       required: [true, "Password is required."],
     },
+    trips: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Trip",
+      },
+    ],
   },
   {
     timestamps: true,

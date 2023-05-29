@@ -12,7 +12,10 @@ import indexRoutes from "./routes/index.routes"
 app.use("/", indexRoutes);
 
 import authRoutes from "./routes/auth.routes"
-app.use("/auth", authRoutes)
+app.use("/auth", authRoutes);
+
+import tripRoutes from "./routes/trip.routes"
+app.use("/trip", tripRoutes)
 
 import errorHandling from './error-handling';
 errorHandling(app);
