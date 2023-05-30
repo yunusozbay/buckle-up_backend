@@ -42,7 +42,7 @@ router.post("/login", (req, res) => __awaiter(void 0, void 0, void 0, function* 
     // Check for user
     const matchedUsers = yield User_model_1.User.find({
         username: req.body.username,
-    });
+    }).populate("trips");
     if (matchedUsers.length) {
         const currentUser = matchedUsers[0];
         // Check password
@@ -56,6 +56,7 @@ router.post("/login", (req, res) => __awaiter(void 0, void 0, void 0, function* 
                         createdAt: currentUser.createdAt,
                         _id: currentUser._id,
                         email: currentUser.email,
+                        trips: currentUser.trips
                     },
                 },
             }, process.env.TOKEN_SECRET, {

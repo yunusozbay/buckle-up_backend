@@ -19,6 +19,9 @@ const tripSchema = new mongoose_1.Schema({
         type: [Object],
         required: true,
     },
+    attractions: {
+        type: [Object],
+    },
     totalDistance: {
         type: Number,
         required: true,

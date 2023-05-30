@@ -31,7 +31,7 @@ router.post("/login", async (req: Request, res: Response) => {
   // Check for user
   const matchedUsers:IUser[] = await User.find({
     username: req.body.username,
-  });
+  }).populate("trips");
   if (matchedUsers.length) {
     const currentUser:IUser = matchedUsers[0];
     // Check password
@@ -46,6 +46,7 @@ router.post("/login", async (req: Request, res: Response) => {
               createdAt: currentUser.createdAt,
               _id: currentUser._id,
               email: currentUser.email,
+              trips: currentUser.trips
             },
           },
         },
