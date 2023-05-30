@@ -1,5 +1,6 @@
 import { Router, Request, Response, NextFunction} from "express";
 import { Trip } from "../models/Trip.model";
+import { User } from "../models/User.model"
 
 const router: Router = Router();
 
@@ -19,7 +20,13 @@ router.post("/add",async (req:Request, res: Response, next: NextFunction) => {
             totalDistance: trip.totalDistance,
             totalTime: trip.totalTime
         })
-        res.status(201).json({newTrip});
+        const userId = req.body.userData._id;
+        const updatedUser = await User.findByIdAndUpdate(
+            userId,
+            { $push: { trips: newTrip._id } },
+            { new: true }
+        ).populate("trips");
+        res.status(201).json({ updatedUser });
     } catch (error) {
         console.log(error);
       }

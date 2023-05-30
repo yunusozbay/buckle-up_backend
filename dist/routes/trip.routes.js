@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const Trip_model_1 = require("../models/Trip.model");
+const User_model_1 = require("../models/User.model");
 const router = (0, express_1.Router)();
 router.get("/", (req, res, next) => {
     res.json("All good in trip routes");
@@ -23,10 +24,13 @@ router.post("/add", (req, res, next) => __awaiter(void 0, void 0, void 0, functi
             startingCity: trip.startingCity,
             destination: trip.destination,
             waypoints: trip.waypoints,
+            attractions: trip.attractions,
             totalDistance: trip.totalDistance,
             totalTime: trip.totalTime
         });
-        res.status(201).json({ newTrip });
+        const userId = req.body.userData._id;
+        const updatedUser = yield User_model_1.User.findByIdAndUpdate(userId, { $push: { trips: newTrip._id } }, { new: true }).populate("trips");
+        res.status(201).json({ updatedUser });
     }
     catch (error) {
         console.log(error);
