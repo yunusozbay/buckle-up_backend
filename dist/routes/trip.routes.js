@@ -16,6 +16,16 @@ const router = (0, express_1.Router)();
 router.get("/", (req, res, next) => {
     res.json("All good in trip routes");
 });
+router.get("/:id", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const tripId = req.params.id;
+        const trip = yield Trip_model_1.Trip.findById(tripId);
+        res.status(200).json({ trip });
+    }
+    catch (error) {
+        console.log(error);
+    }
+}));
 router.post("/add", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const trip = req.body.trip;
     try {

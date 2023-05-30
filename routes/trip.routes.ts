@@ -8,6 +8,16 @@ router.get("/", (req: Request, res: Response, next: NextFunction) => {
   res.json("All good in trip routes");
 });
 
+router.get("/:id", async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const tripId = req.params.id;
+        const trip = await Trip.findById(tripId);
+        res.status(200).json({ trip });
+      } catch (error) {
+        console.log(error);
+      }
+});
+
 router.post("/add",async (req:Request, res: Response, next: NextFunction) => {
     const trip = req.body.trip;
     try {
