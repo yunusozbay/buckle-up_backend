@@ -10,7 +10,7 @@ export const configure = (app: Application): void => {
 
   app.use(
     cors({
-      origin: [FRONTEND_URL],
+      origin: [FRONTEND_URL, "https://buckle-up.netlify.app"],
     })
   );
 
