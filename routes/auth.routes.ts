@@ -10,6 +10,8 @@ router.get("/", (req: Request, res: Response, next: NextFunction) => {
   res.json("Auth routes");
 });
 
+
+
 router.post("/signup", async (req: Request, res: Response) => {
   try {
     // Hash password
@@ -73,6 +75,11 @@ router.get("/verify", isAuthenticated, (req:CustomRequest, res:Response) => {
     if (req.payload) {
       return res.json(req.payload.data.user);
     }
+  });
+
+  router.get("/:id", async (req: Request, res: Response, next: NextFunction) => {
+    const user: IUser | null = await User.findById(req.params.id).populate("trips");
+    res.status(200).json({ user });
   });
 
 export default router;

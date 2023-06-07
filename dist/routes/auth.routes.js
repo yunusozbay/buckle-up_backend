@@ -78,4 +78,8 @@ router.get("/verify", isAuthenticated_1.default, (req, res) => {
         return res.json(req.payload.data.user);
     }
 });
+router.get("/:id", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = yield User_model_1.User.findById(req.params.id).populate("trips");
+    res.status(200).json({ user });
+}));
 exports.default = router;
