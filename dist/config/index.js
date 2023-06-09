@@ -12,7 +12,7 @@ const FRONTEND_URL = process.env.ORIGIN || "http://localhost:5173";
 const configure = (app) => {
     app.set("trust proxy", 1);
     app.use((0, cors_1.default)({
-        origin: [FRONTEND_URL],
+        origin: [FRONTEND_URL, "https://buckle-up.netlify.app"],
     }));
     app.use((0, morgan_1.default)("dev"));
     app.use(express_1.default.json());
