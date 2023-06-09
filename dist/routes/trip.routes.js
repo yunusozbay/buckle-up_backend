@@ -27,7 +27,7 @@ router.get("/:id", (req, res, next) => __awaiter(void 0, void 0, void 0, functio
     }
 }));
 router.post("/add", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    const trip = req.body.trip;
+    const trip = req.body.tripData;
     try {
         const newTrip = yield Trip_model_1.Trip.create({
             title: trip.title,
