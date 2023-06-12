@@ -42,4 +42,17 @@ router.post("/add",async (req:Request, res: Response, next: NextFunction) => {
       }
 })
 
+router.post("/delete", async (req, res, next) => {
+  try {
+    const tripId = req.body.tripData._id;
+    await Trip.findByIdAndDelete(tripId);
+    const updatedUser = await User.findById(req.body.userData._id).populate(
+      "trips"
+    );
+    res.status(200).json({ updatedUser });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export default router;

@@ -46,4 +46,15 @@ router.post("/add", (req, res, next) => __awaiter(void 0, void 0, void 0, functi
         console.log(error);
     }
 }));
+router.post("/delete", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const tripId = req.body.tripData._id;
+        yield Trip_model_1.Trip.findByIdAndDelete(tripId);
+        const updatedUser = yield User_model_1.User.findById(req.body.userData._id).populate("trips");
+        res.status(200).json({ updatedUser });
+    }
+    catch (error) {
+        console.log(error);
+    }
+}));
 exports.default = router;
