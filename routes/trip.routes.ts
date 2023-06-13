@@ -42,6 +42,21 @@ router.post("/add",async (req:Request, res: Response, next: NextFunction) => {
       }
 })
 
+router.post("/update", async (req:Request, res: Response, next: NextFunction) => {
+  try {
+    console.log(req.body.updatedTrip)
+    const updatedTrip = await Trip.findByIdAndUpdate(
+      req.body.updatedTrip._id,
+      { ...req.body.updatedTrip },
+      { new: true }
+    )
+    const updatedUser = await User.findById(req.body.userData._id)
+    res.status(200).json({ updatedTrip, updatedUser });
+  } catch (err) {
+    console.log("Ohh nooo, error", err);
+  }
+});
+
 router.post("/delete", async (req, res, next) => {
   try {
     const tripId = req.body.tripData._id;
