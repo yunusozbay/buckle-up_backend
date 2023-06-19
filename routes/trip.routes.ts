@@ -19,7 +19,7 @@ router.get("/:id", async (req: Request, res: Response, next: NextFunction) => {
 });
 
 router.post("/add",async (req:Request, res: Response, next: NextFunction) => {
-    const trip = req.body.tripData;
+    const trip = req.body.trip;
     try {
         const newTrip = await Trip.create({
             title: trip.title,
