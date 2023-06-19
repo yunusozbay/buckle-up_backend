@@ -10,8 +10,6 @@ router.get("/", (req: Request, res: Response, next: NextFunction) => {
   res.json("Auth routes");
 });
 
-
-
 router.post("/signup", async (req: Request, res: Response) => {
   try {
     // Hash password
