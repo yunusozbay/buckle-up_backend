@@ -12,6 +12,12 @@ router.get("/", (req: Request, res: Response, next: NextFunction) => {
 
 router.post("/signup", async (req: Request, res: Response) => {
   try {
+    const matchedUsers:IUser[] = await User.find({
+      username: req.body.username,
+    })
+    if (matchedUsers.length) {
+      res.status(403).json({message: "User already exists"})
+    }
     // Hash password
     const salt = bcrypt.genSaltSync(13);
     const hashedPassword = bcrypt.hashSync(req.body.password, salt);

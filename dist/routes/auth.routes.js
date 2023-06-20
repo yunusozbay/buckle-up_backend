@@ -23,6 +23,12 @@ router.get("/", (req, res, next) => {
 });
 router.post("/signup", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const matchedUsers = yield User_model_1.User.find({
+            username: req.body.username,
+        });
+        if (matchedUsers.length) {
+            res.status(403).json({ message: "User already exists" });
+        }
         // Hash password
         const salt = bcrypt_1.default.genSaltSync(13);
         const hashedPassword = bcrypt_1.default.hashSync(req.body.password, salt);
