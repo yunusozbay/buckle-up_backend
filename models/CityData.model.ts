@@ -21,4 +21,4 @@ const cityDataSchema = new Schema<ICityData>(
   }
 );
 
-export const CityData = model<ICityData>("Trip", cityDataSchema);
+export const CityData = model<ICityData>("CityData", cityDataSchema);

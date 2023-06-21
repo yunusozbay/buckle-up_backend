@@ -48,7 +48,6 @@ router.post("/add", (req, res, next) => __awaiter(void 0, void 0, void 0, functi
 }));
 router.post("/update", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        console.log(req.body.updatedTrip);
         const updatedTrip = yield Trip_model_1.Trip.findByIdAndUpdate(req.body.updatedTrip._id, Object.assign({}, req.body.updatedTrip), { new: true });
         const updatedUser = yield User_model_1.User.findById(req.body.userData._id);
         res.status(200).json({ updatedTrip, updatedUser });

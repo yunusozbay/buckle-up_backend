@@ -44,7 +44,6 @@ router.post("/add",async (req:Request, res: Response, next: NextFunction) => {
 
 router.post("/update", async (req:Request, res: Response, next: NextFunction) => {
   try {
-    console.log(req.body.updatedTrip)
     const updatedTrip = await Trip.findByIdAndUpdate(
       req.body.updatedTrip._id,
       { ...req.body.updatedTrip },

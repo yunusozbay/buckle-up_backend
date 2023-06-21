@@ -13,4 +13,4 @@ const cityDataSchema = new mongoose_1.Schema({
         type: String,
     }
 });
-exports.CityData = (0, mongoose_1.model)("Trip", cityDataSchema);
+exports.CityData = (0, mongoose_1.model)("CityData", cityDataSchema);
