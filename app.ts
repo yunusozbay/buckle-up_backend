@@ -15,7 +15,10 @@ import authRoutes from "./routes/auth.routes"
 app.use("/auth", authRoutes);
 
 import tripRoutes from "./routes/trip.routes"
-app.use("/trip", tripRoutes)
+app.use("/trip", tripRoutes);
+
+import cityRoutes from "./routes/city.routes"
+app.use("/city", cityRoutes);
 
 import errorHandling from './error-handling';
 errorHandling(app);

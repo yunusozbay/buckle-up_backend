@@ -38,6 +38,8 @@ const auth_routes_1 = __importDefault(require("./routes/auth.routes"));
 app.use("/auth", auth_routes_1.default);
 const trip_routes_1 = __importDefault(require("./routes/trip.routes"));
 app.use("/trip", trip_routes_1.default);
+const city_routes_1 = __importDefault(require("./routes/city.routes"));
+app.use("/city", city_routes_1.default);
 const error_handling_1 = __importDefault(require("./error-handling"));
 (0, error_handling_1.default)(app);
 //Database connection
