@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 function dbConnection() {
     mongoose_1.default.set('strictQuery', false);
-    const MONGO_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/buckle-up_backend';
+    const MONGO_URI = process.env.MONGODB_URI;
     mongoose_1.default
         .connect(MONGO_URI)
         .then((x) => {

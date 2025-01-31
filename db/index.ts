@@ -5,7 +5,7 @@ function dbConnection():void{
 mongoose.set('strictQuery', false);
 
 const MONGO_URI: string =
-  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/buckle-up_backend';
+  process.env.MONGODB_URI!;
 
 mongoose
   .connect(MONGO_URI)
